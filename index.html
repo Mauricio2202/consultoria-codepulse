@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodePulse | Consultoría en Desarrollo de Software</title>
+    <link rel="icon" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        .section {
+            min-height: 100vh;
+            padding: 5rem 2rem;
+            transition: all 0.5s ease;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background: #e67e22;
+        }
+
+        .btn-tertiary {
+            background: #10b981;
+        }
+
+        .btn-tertiary:hover {
+            background: #059669;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+        }
+
+        .btn-whatsapp:hover {
+            background: #128C7E;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            background: white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 1rem 2rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        #inicio {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            flex: 1;
+            padding-right: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-image {
+            flex: 1;
+            position: relative;
+            height: auto;
+            z-index: 1;
+        }
+        
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            object-fit: contain;
+            animation: float 6s ease-in-out infinite;
+            position: relative;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 3;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        #nosotros {
+            background: white;
+        }
+        
+        .team {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .team-member {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
+        }
+        
+        .member-info {
+            padding: 1.5rem;
+        }
+        
+        .member-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .member-info p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        #proyectos {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-image {
+            height: 200px;
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+        }
+        
+        .project-info {
+            padding: 1.5rem;
+        }
+        
+        .project-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-info p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .project-tag {
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+        
+        #contacto {
+            background: white;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            background: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+        
+        .contact-text h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .contact-text p, .contact-text a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-text a:hover {
+            color: var(--primary);
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Estilos para la sección de contratación */
+        #contratacion {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .testing-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testing-question {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .testing-question:last-child {
+            border-bottom: none;
+        }
+
+        .testing-question h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+        }
+
+        .testing-question p {
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+            color: var(--gray);
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .radio-option input {
+            width: auto;
+        }
+
+        .radio-option label {
+            font-size: 0.9rem;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .footer-logo span {
+            color: var(--secondary);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .social-links a {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            #inicio {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 6rem;
+            }
+            
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 3rem;
+            }
+            
+            .hero-image {
+                width: 100%;
+            }
+
+            .project-actions {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 5px 0 20px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 1rem 0;
+            }
+            
+            .section {
+                padding: 4rem 1.5rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <a href="#inicio" class="logo">Code<span>Pulse</span></a>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Sobre Nosotros</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#contratacion">Únete al Equipo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="section">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Soluciones tecnológicas a medida para tu negocio</h1>
+                <p>Somos expertos en desarrollo de páginas web, aplicaciones móviles y de escritorio, y testing de software. Llevamos tu visión al siguiente nivel con soluciones robustas y escalables.</p>
+                <div class="buttons">
+                    <a href="#contacto" class="btn">Contáctanos</a>
+                    <a href="#proyectos" class="btn btn-secondary">Ver Proyectos</a>
+                </div>
+            </div>
+            <div class="hero-image fade-in">
+                <div class="image-container">
+                    <img src="logo.png" alt="Desarrollo de software">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="nosotros" class="section">
+        <div class="container">
+            <h2 class="fade-in">Nuestro Equipo</h2>
+            <p class="fade-in">Somos un equipo de desarrolladores de software de alta calidad, comprometidos con entregar soluciones tecnológicas que impulsen el crecimiento de tu negocio.</p>
+            
+            <div class="team">
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="mauricio.jpg" alt="Mauricio Garro Rodríguez">
+                    </div>
+                    <div class="member-info">
+                        <h3>Mauricio Garro Rodríguez</h3>
+                        <p>Desarrollador Full Stack, PM y Tester</p>
+                    </div>
+                </div>
+                
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="josias.jpg" alt="Josias Pérez Mendez">
+                    </div>
+                    <div class="member-info">
+                        <h3>Josias Pérez Mendez</h3>
+                        <p>Especialista en Diseño UI/UX, Bases de Datos y Tester</p>
+                    </div>
+                </div>
+                
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="adrianUno.jpg" alt="Adrián Morales Monterrubio">
+                    </div>
+                    <div class="member-info">
+                        <h3>Adrián Morales Monterrubio</h3>
+                        <p>Experto en Testing de Software y aplicaciones de escritorio</p>
+                    </div>
+                </div>
+                
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="adrianDos.jpg" alt="Adrián Dos">
+                    </div>
+                    <div class="member-info">
+                        <h3>Adrián Estrada Sales</h3>
+                        <p>Profesional en Animación</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proyectos" class="section">
+        <div class="container">
+            <h2 class="fade-in">Proyectos de Éxito</h2>
+            <p class="fade-in">Estos son algunos de los proyectos en los que hemos trabajado, demostrando nuestra experiencia y capacidad de entrega.</p>
+            
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-laptop-code" style="font-size: 3rem;"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Compilador web Simplexito</h3>
+                        <p>Plataforma web personalizada diseñado para que principiantes aprendan a programar</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Web</span>
+                            <span class="project-tag">Compilador</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://simplexito.netlify.app/" target="_blank" class="btn btn-tertiary">
+                                <i class="fas fa-external-link-alt"></i> Ver Proyecto
+                            </a>
+                            <a href="Pruebas_Simplexito.xlsx" download="Pruebas_Simplexito.xlsx" class="btn btn-secondary">
+                                <i class="fas fa-download"></i> Matriz de Pruebas
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-mobile-alt" style="font-size: 3rem;"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>App para hacer operaciones básicas</h3>
+                        <p>Aplicación Android para realizar operaciones matemáticas básicas</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Android</span>
+                            <span class="project-tag">Educación</span>
+                            <span class="project-tag">Java</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/Mauricio2202/aplication-operaciones-basicas" target="_blank" class="btn btn-tertiary">
+                                <i class="fas fa-external-link-alt"></i> Ver Código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-desktop" style="font-size: 3rem;"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Sistema de Teatro con Java MVC</h3>
+                        <p>Solución de escritorio para gestión de boletos de teatro usando patrón MVC</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Desktop</span>
+                            <span class="project-tag">Java</span>
+                            <span class="project-tag">MVC</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/Mauricio2202/teatro-java-mvc" target="_blank" class="btn btn-tertiary">
+                                <i class="fas fa-external-link-alt"></i> Ver Código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nueva sección de contratación para Testing -->
+    <section id="contratacion" class="section">
+        <div class="container">
+            <h2 class="fade-in">Únete a nuestro equipo de Testing</h2>
+            <p class="fade-in">Buscamos talento en Testing de Aplicaciones. Responde este breve cuestionario para evaluar tus conocimientos.</p>
+            
+            <form id="testingForm" class="testing-form fade-in">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="experiencia">Años de experiencia en Testing</label>
+                    <select id="experiencia" name="experiencia" required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="0-1">0-1 año</option>
+                        <option value="1-3">1-3 años</option>
+                        <option value="3-5">3-5 años</option>
+                        <option value="5+">Más de 5 años</option>
+                    </select>
+                </div>
+                
+                <div class="testing-question">
+                    <h3>1. ¿Qué es un caso de prueba?</h3>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="q1-a" name="q1" value="a" required>
+                            <label for="q1-a">Un documento que describe un escenario a probar con entradas, acciones y resultados esperados</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="q1-b" name="q1" value="b">
+                            <label for="q1-b">Un informe de errores encontrados en el sistema</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="q1-c" name="q1" value="c">
+                            <label for="q1-c">Un resumen de las funcionalidades del sistema</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testing-question">
+                    <h3>2. ¿Qué es la prueba de regresión?</h3>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="q2-a" name="q2" value="a" required>
+                            <label for="q2-a">Pruebas que verifican que cambios recientes no han afectado funcionalidades existentes</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="q2-b" name="q2" value="b">
+                            <label for="q2-b">Pruebas de rendimiento del sistema</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="q2-c" name="q2" value="c">
+                            <label for="q2-c">Pruebas iniciales de un nuevo módulo</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testing-question">
+                    <h3>3. ¿Qué herramienta usarías para reportar bugs?</h3>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="q3-a" name="q3" value="a" required>
+                            <label for="q3-a">JIRA, Bugzilla o herramientas similares</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="q3-b" name="q3" value="b">
+                            <label for="q3-b">Microsoft Word o Excel</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="q3-c" name="q3" value="c">
+                            <label for="q3-c">Correo electrónico directo al desarrollador</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testing-question">
+                    <h3>4. ¿Qué es testing de caja negra?</h3>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="q4-a" name="q4" value="a" required>
+                            <label for="q4-a">Pruebas basadas en especificaciones sin conocer la implementación interna</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="q4-b" name="q4" value="b">
+                            <label for="q4-b">Pruebas que examinan el código fuente</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="q4-c" name="q4" value="c">
+                            <label for="q4-c">Pruebas de seguridad</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testing-question">
+                    <h3>5. ¿Qué incluirías en un reporte de bug?</h3>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="q5-a" name="q5" value="a" required>
+                            <label for="q5-a">Pasos para reproducir, resultado actual, resultado esperado y evidencia</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="q5-b" name="q5" value="b">
+                            <label for="q5-b">Solo una descripción breve del problema</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="q5-c" name="q5" value="c">
+                            <label for="q5-c">Una sugerencia de cómo solucionarlo</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="comentarios">¿Por qué te interesa trabajar en nuestro equipo de Testing?</label>
+                    <textarea id="comentarios" name="comentarios" rows="3"></textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" id="enviarWhatsApp" class="btn btn-whatsapp">
+                        <span class="whatsapp-btn">
+                            <i class="fab fa-whatsapp"></i> Enviar por WhatsApp
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section id="contacto" class="section">
+        <div class="container">
+            <h2 class="fade-in">Contáctanos</h2>
+            <p class="fade-in">¿Listo para comenzar tu próximo proyecto? Ponte en contacto con nosotros y te responderemos lo antes posible.</p>
+            
+            <div class="contact-container">
+                <div class="contact-info fade-in">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Ubicación</h3>
+                            <p>Reforma, Ciudad de México</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <a href="mailto:info@codepulse.com">developers@codepulse.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Teléfono</h3>
+                            <a href="tel:+50612345678">+52 5636063000</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Horario</h3>
+                            <p>Lunes a Viernes: 9am - 5pm</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form fade-in">
+                    <form id="formContacto">
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="asunto">Asunto</label>
+                            <input type="text" id="asunto" name="asunto" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <a href="#inicio" class="footer-logo">Code<span>Pulse</span></a>
+            <div class="footer-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#nosotros">Sobre Nosotros</a>
+                <a href="#proyectos">Proyectos</a>
+                <a href="#contratacion">Únete al Equipo</a>
+                <a href="#contacto">Contacto</a>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos y Condiciones</a>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+            <p class="copyright">© 2023 CodePulse Consultoría. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+        
+        menuToggle.addEventListener('click', function() {
+            nav.classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-times');
+            this.querySelector('i').classList.toggle('fa-bars');
+        });
+        
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', function() {
+                nav.classList.remove('active');
+                menuToggle.querySelector('i').classList.remove('fa-times');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+            });
+        });
+        
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = function() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('active');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('load', fadeInOnScroll);
+        
+        const contactForm = document.getElementById('formContacto');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
+            contactForm.reset();
+        });
+
+        // Script para el formulario de Testing
+        document.getElementById('enviarWhatsApp').addEventListener('click', function() {
+            const form = document.getElementById('testingForm');
+            const formData = new FormData(form);
+            
+            // Validar que todas las preguntas estén respondidas
+            const preguntas = ['q1', 'q2', 'q3', 'q4', 'q5'];
+            let todasRespondidas = true;
+            
+            preguntas.forEach(pregunta => {
+                if (!form.querySelector(`input[name="${pregunta}"]:checked`)) {
+                    todasRespondidas = false;
+                }
+            });
+            
+            if (!todasRespondidas || !formData.get('nombre') || !formData.get('email') || !formData.get('experiencia')) {
+                alert('Por favor completa todos los campos del formulario, incluyendo todas las preguntas.');
+                return;
+            }
+            
+            // Crear el mensaje para WhatsApp
+            let mensaje = `*Solicitud de Contratación - Área de Testing*\n\n`;
+            mensaje += `*Nombre:* ${formData.get('nombre')}\n`;
+            mensaje += `*Email:* ${formData.get('email')}\n`;
+            mensaje += `*Experiencia:* ${formData.get('experiencia')}\n\n`;
+            
+            mensaje += `*Respuestas a las preguntas técnicas:*\n`;
+            mensaje += `1. ${getSelectedLabel('q1')}\n`;
+            mensaje += `2. ${getSelectedLabel('q2')}\n`;
+            mensaje += `3. ${getSelectedLabel('q3')}\n`;
+            mensaje += `4. ${getSelectedLabel('q4')}\n`;
+            mensaje += `5. ${getSelectedLabel('q5')}\n\n`;
+            
+            if (formData.get('comentarios')) {
+                mensaje += `*Comentarios adicionales:*\n${formData.get('comentarios')}\n\n`;
+            }
+            
+            mensaje += `Estoy interesado/a en formar parte del equipo de Testing de CodePulse.`;
+            
+            // Codificar el mensaje para URL
+            const mensajeCodificado = encodeURIComponent(mensaje);
+            
+            // Número de WhatsApp
+            const numeroWhatsApp = '+525636063000';
+            
+            // Crear el enlace de WhatsApp
+            const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
+            
+            // Abrir WhatsApp
+            window.open(urlWhatsApp, '_blank');
+            
+            // Función para obtener el texto de la opción seleccionada
+            function getSelectedLabel(questionName) {
+                const selected = form.querySelector(`input[name="${questionName}"]:checked`);
+                if (selected) {
+                    return selected.nextElementSibling.textContent;
+                }
+                return 'No respondida';
+            }
+        });
+    </script>
+</body>
+</html>
